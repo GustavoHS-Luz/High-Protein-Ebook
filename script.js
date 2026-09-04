@@ -1,4 +1,6 @@
 const slides = [...document.querySelectorAll('.slide')];
+const priyaAvatar = document.querySelector('img[alt="Priya R."]');
+if (priyaAvatar) priyaAvatar.src = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&auto=format&fit=crop&q=70';
 const dots = document.querySelector('.dots');
 let currentSlide = 0;
 
@@ -36,3 +38,22 @@ function updateTimer() {
 }
 updateTimer();
 setInterval(updateTimer, 1000);
+
+const reviews = [...document.querySelectorAll('.review-track .testimonial')];
+const reviewDots = document.querySelector('.review-dots');
+let currentReview = 0;
+reviews.forEach((_, index) => {
+  const dot = document.createElement('button');
+  dot.className = `dot${index === 0 ? ' active' : ''}`;
+  dot.type = 'button';
+  dot.setAttribute('aria-label', `Show review ${index + 1}`);
+  dot.addEventListener('click', () => showReview(index));
+  reviewDots.appendChild(dot);
+});
+function showReview(index) {
+  currentReview = (index + reviews.length) % reviews.length;
+  reviews.forEach((review, reviewIndex) => review.classList.toggle('active', reviewIndex === currentReview));
+  [...reviewDots.children].forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === currentReview));
+}
+document.querySelector('.review-prev').addEventListener('click', () => showReview(currentReview - 1));
+document.querySelector('.review-next').addEventListener('click', () => showReview(currentReview + 1));
