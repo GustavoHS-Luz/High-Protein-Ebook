@@ -1,6 +1,13 @@
 const slides = [...document.querySelectorAll('.slide')];
-const priyaAvatar = document.querySelector('img[alt="Priya R."]');
-if (priyaAvatar) priyaAvatar.src = 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&auto=format&fit=crop&q=70';
+const reviewAvatars = {
+  'Jessica M.': 'imgs/jessica-avatar.webp',
+  'Marcus T.': 'imgs/marcus-avatar.webp',
+  'Priya R.': 'imgs/priya-avatar.jpg'
+};
+Object.entries(reviewAvatars).forEach(([name, source]) => {
+  const avatar = document.querySelector(`img[alt="${name}"]`);
+  if (avatar) avatar.src = source;
+});
 const dots = document.querySelector('.dots');
 let currentSlide = 0;
 
