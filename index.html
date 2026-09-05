@@ -11,47 +11,63 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet"></noscript>
   <link rel="preload" as="image" href="imgs/Gemini_Generated_Image_a4xmnba4xmnba4xm%20(1)%20(1).webp" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="enhancements.css">
-  <link rel="stylesheet" href="gallery-fix.css">
-  <link rel="stylesheet" href="gallery-layout-fix.css">
-  <link rel="stylesheet" href="bonus-fix.css">
-  <link rel="stylesheet" href="offer-layout-fix.css">
-  <link rel="stylesheet" href="hero-fix.css">
-  <link rel="stylesheet" href="benefits-fix.css">
-  <link rel="stylesheet" href="review-controls-fix.css">
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "ydode2bma8");
-  </script>
-  <!-- Meta Pixel Code -->
+  <link rel="preload" as="style" href="enhancements.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="gallery-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="gallery-layout-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="bonus-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="offer-layout-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="hero-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="benefits-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="review-controls-fix.css" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Analytics loads after the critical page content is ready. -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    (window.requestIdleCallback || function (callback) { setTimeout(callback, 1); })(function () {
-      fbq('init', '642073674925506');
-      fbq('track', 'PageView');
-    });
+    (function () {
+      var trackingLoaded = false;
+      function loadTracking() {
+        if (trackingLoaded) return;
+        trackingLoaded = true;
+
+        (function (clarityWindow, clarityDocument, clarityKey, clarityTag, clarityId) {
+          clarityWindow[clarityKey] = clarityWindow[clarityKey] || function () {
+            (clarityWindow[clarityKey].q = clarityWindow[clarityKey].q || []).push(arguments);
+          };
+          var clarityScript = clarityDocument.createElement(clarityTag);
+          clarityScript.async = true;
+          clarityScript.src = 'https://www.clarity.ms/tag/' + clarityId;
+          clarityDocument.head.appendChild(clarityScript);
+        })(window, document, 'clarity', 'script', 'ydode2bma8');
+
+        (function (pixelWindow, pixelDocument, pixelKey, pixelTag, pixelUrl) {
+          pixelWindow[pixelKey] = pixelWindow[pixelKey] || function () {
+            (pixelWindow[pixelKey].q = pixelWindow[pixelKey].q || []).push(arguments);
+          };
+          pixelWindow[pixelKey].loaded = true;
+          pixelWindow[pixelKey].version = '2.0';
+          pixelWindow[pixelKey].queue = [];
+          var pixelScript = pixelDocument.createElement(pixelTag);
+          pixelScript.async = true;
+          pixelScript.src = pixelUrl;
+          pixelDocument.head.appendChild(pixelScript);
+        })(window, document, 'fbq', 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '642073674925506');
+        fbq('track', 'PageView');
+      }
+
+      window.addEventListener('load', function () { setTimeout(loadTracking, 3000); }, { once: true });
+      ['pointerdown', 'keydown', 'scroll'].forEach(function (eventName) {
+        window.addEventListener(eventName, loadTracking, { once: true, passive: true });
+      });
+    })();
   </script>
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=642073674925506&amp;ev=PageView&amp;noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Prep and Savor home">PREP <span>&amp;</span> SAVOR</a>
   </header>
-
   <main id="top">
     <section class="hero section-wrap">
       <div class="hero-copy reveal">
@@ -72,7 +88,6 @@
         <div class="hero-stamp"><strong>15</strong><span>MINUTES<br>TO DINNER</span></div>
       </div>
     </section>
-
     <section class="problem band">
       <div class="section-wrap narrow center reveal">
         <p class="eyebrow">YOUR NEW EVERYDAY ROUTINE</p>
