@@ -2,7 +2,7 @@ const slides = [...document.querySelectorAll('.slide')];
 const reviewAvatars = {
   'Jessica M.': 'imgs/jessica-avatar.webp',
   'Marcus T.': 'imgs/marcus-avatar.webp',
-  'Priya R.': 'imgs/priya-avatar.jpg'
+  'Priya R.': 'imgs/priya-avatar-photo.webp'
 };
 Object.entries(reviewAvatars).forEach(([name, source]) => {
   const avatar = document.querySelector(`img[alt="${name}"]`);
