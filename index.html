@@ -38,20 +38,23 @@
         })(window, document, 'clarity', 'script', 'ydode2bma8');
 
         (function (pixelWindow, pixelDocument, pixelKey, pixelTag, pixelUrl) {
-          pixelWindow[pixelKey] = pixelWindow[pixelKey] || function () {
-            (pixelWindow[pixelKey].q = pixelWindow[pixelKey].q || []).push(arguments);
+          if (pixelWindow.fbq) return;
+          var pixelQueue = pixelWindow.fbq = function () {
+            pixelQueue.callMethod ? pixelQueue.callMethod.apply(pixelQueue, arguments) : pixelQueue.queue.push(arguments);
           };
-          pixelWindow[pixelKey].loaded = true;
-          pixelWindow[pixelKey].version = '2.0';
-          pixelWindow[pixelKey].queue = [];
+          if (!pixelWindow._fbq) pixelWindow._fbq = pixelQueue;
+          pixelQueue.push = pixelQueue;
+          pixelQueue.loaded = true;
+          pixelQueue.version = '2.0';
+          pixelQueue.queue = [];
           var pixelScript = pixelDocument.createElement(pixelTag);
           pixelScript.async = true;
           pixelScript.src = pixelUrl;
           pixelDocument.head.appendChild(pixelScript);
         })(window, document, 'fbq', 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-        fbq('init', '642073674925506');
-        fbq('track', 'PageView');
+        window.fbq('init', '642073674925506');
+        window.fbq('track', 'PageView');
       }
 
       window.addEventListener('load', function () { setTimeout(loadTracking, 3000); }, { once: true });
