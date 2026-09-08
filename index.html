@@ -19,24 +19,9 @@
   <link rel="preload" as="style" href="hero-fix.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="benefits-fix.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="review-controls-fix.css" onload="this.onload=null;this.rel='stylesheet'">
-  <!-- Analytics loads after the critical page content is ready. -->
+  <!-- Facebook Pixel starts immediately so PageView is recorded before navigation. -->
   <script>
     (function () {
-      var trackingLoaded = false;
-      function loadTracking() {
-        if (trackingLoaded) return;
-        trackingLoaded = true;
-
-        (function (clarityWindow, clarityDocument, clarityKey, clarityTag, clarityId) {
-          clarityWindow[clarityKey] = clarityWindow[clarityKey] || function () {
-            (clarityWindow[clarityKey].q = clarityWindow[clarityKey].q || []).push(arguments);
-          };
-          var clarityScript = clarityDocument.createElement(clarityTag);
-          clarityScript.async = true;
-          clarityScript.src = 'https://www.clarity.ms/tag/' + clarityId;
-          clarityDocument.head.appendChild(clarityScript);
-        })(window, document, 'clarity', 'script', 'ydode2bma8');
-
         (function (pixelWindow, pixelDocument, pixelKey, pixelTag, pixelUrl) {
           if (pixelWindow.fbq) return;
           var pixelQueue = pixelWindow.fbq = function () {
@@ -55,11 +40,26 @@
 
         window.fbq('init', '642073674925506');
         window.fbq('track', 'PageView');
-      }
 
-      window.addEventListener('load', function () { setTimeout(loadTracking, 3000); }, { once: true });
+        var clarityLoaded = false;
+        function loadClarity() {
+          if (clarityLoaded) return;
+          clarityLoaded = true;
+
+          (function (clarityWindow, clarityDocument, clarityKey, clarityTag, clarityId) {
+            clarityWindow[clarityKey] = clarityWindow[clarityKey] || function () {
+              (clarityWindow[clarityKey].q = clarityWindow[clarityKey].q || []).push(arguments);
+            };
+            var clarityScript = clarityDocument.createElement(clarityTag);
+            clarityScript.async = true;
+            clarityScript.src = 'https://www.clarity.ms/tag/' + clarityId;
+            clarityDocument.head.appendChild(clarityScript);
+          })(window, document, 'clarity', 'script', 'ydode2bma8');
+        }
+
+      window.addEventListener('load', function () { setTimeout(loadClarity, 3000); }, { once: true });
       ['pointerdown', 'keydown', 'scroll'].forEach(function (eventName) {
-        window.addEventListener(eventName, loadTracking, { once: true, passive: true });
+        window.addEventListener(eventName, loadClarity, { once: true, passive: true });
       });
     })();
   </script>
