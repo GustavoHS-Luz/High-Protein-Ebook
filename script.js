@@ -82,7 +82,8 @@ function setLanguage(language) {
   localStorage.setItem('highProteinLanguage', language);
 }
 document.querySelectorAll('.language-button').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
-setLanguage(localStorage.getItem('highProteinLanguage') || 'en');
+const languageFromPath = window.location.pathname.match(/^\/(en|es)\/?$/)?.[1];
+setLanguage(languageFromPath || localStorage.getItem('highProteinLanguage') || 'es');
 
 const reviewAvatars = {
   'Jessica M.': 'imgs/jessica-avatar.webp',
