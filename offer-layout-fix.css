@@ -24,11 +24,6 @@
     font-weight: 700
 }
 
-.starter-card .price .promo-price {
-    color: #22c55e !important;
-    font-weight: 700
-}
-
 .promo-button {
     background: #22c55e !important;
     color: #fff !important
@@ -40,10 +35,6 @@
 
 .complete-card {
     order: -1
-}
-
-.starter-card {
-    order: 0
 }
 
 @media(max-width:600px) {

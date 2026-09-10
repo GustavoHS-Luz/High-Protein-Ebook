@@ -67,40 +67,6 @@ img {
     font-size: 18px
 }
 
-.language {
-    font-size: 12px;
-    color: var(--muted)
-}
-
-.language-button {
-    border: 0;
-    padding: 4px 0;
-    background: transparent;
-    color: var(--muted);
-    font: inherit;
-    cursor: pointer
-}
-
-.language-button.active,
-.language-button:hover,
-.language-button:focus-visible {
-    color: var(--ink)
-}
-
-.language-button:focus-visible {
-    outline: 2px solid var(--orange);
-    outline-offset: 3px
-}
-
-.language strong {
-    color: var(--ink)
-}
-
-.language span {
-    margin: 0 7px;
-    color: #b0b8b1
-}
-
 .hero {
     display: grid;
     grid-template-columns: 1.05fr .95fr;
@@ -862,15 +828,6 @@ details p {
     .brand {
         font-size: 11px;
         letter-spacing: .1em
-    }
-
-    .language {
-        font-size: 10px;
-        white-space: nowrap
-    }
-
-    .language span {
-        margin: 0 4px
     }
 
     .hero {
