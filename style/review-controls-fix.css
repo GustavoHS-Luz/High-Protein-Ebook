@@ -62,6 +62,22 @@
     transform: scale(1.45)
 }
 
+.testimonial-whatsapp {
+    border-left: 0;
+    padding: 0;
+    text-align: center
+}
+
+.testimonial-whatsapp img {
+    display: block;
+    width: min(100%, 503px);
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(49, 76, 66, .14);
+    border-radius: 18px;
+    box-shadow: 0 14px 28px rgba(29, 41, 38, .14)
+}
+
 @media(max-width:600px) {
     .review-controls {
         gap: 16px;
